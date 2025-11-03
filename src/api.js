@@ -76,3 +76,5 @@ export function downloadBlob({ blob, filename }) {
   document.body.removeChild(link)
   URL.revokeObjectURL(url)
 }
+export { API_BASE_URL, AUTH }
+
