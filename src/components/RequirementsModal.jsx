@@ -54,7 +54,11 @@ export default function RequirementModal({ school, major, degree, onClose }) {
 
         {!loading && requirements && (
           <div className="requirement-tables">
-            {Object.entries(groupedRequirements).map(([yearLabel, semesters]) => (
+            {Object.entries(groupedRequirements).sort(([a], [b]) => {
+                const getYearNum = (label) => parseInt(label);
+                return getYearNum(a) - getYearNum(b)
+              })
+              .map(([yearLabel, semesters]) => (
               <div key={yearLabel} className="year-section">
                 <h3>{yearLabel}</h3>
                 <div className="semester-pair">
